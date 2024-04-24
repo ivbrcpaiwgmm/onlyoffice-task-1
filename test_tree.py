@@ -6,7 +6,7 @@ TEST_DATA = [('temp_tst/tst_1/сhristmas_tree.txt', 1),
              ('temp_tst/tst_2/сhristmas_tree.txt', 5),
              ('temp_tst/сhristmas_tree.txt', 12),
              ('сhristmas_tree.txt', 100),
-             ('сhristmas_tree.csv', 20)
+             ('сhristmas_tree.txt', 20)
              ]
 
 
@@ -67,8 +67,8 @@ class TestChristmasTree:
             with open(path, 'r') as file:
                 content = file.readlines()
                 # На первой строке должна быть звезда, на второй не должно быть игрушки, поэтому использую '2' в range.
-                branches_with_toys = ['@' in content[line_number]  for line_number in
-                            range(2, levels + 1)]
+                branches_with_toys = ['@' in content[line_number] for line_number in
+                                      range(2, levels + 1)]
                 assert all(branches_with_toys), "There are branches without toys."
         except FileNotFoundError:
             pytest.fail(f"File {path} not found.")
